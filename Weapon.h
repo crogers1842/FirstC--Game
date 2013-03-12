@@ -25,9 +25,4 @@ class Weapon: public Item
 			cout<<endl;
 		}
 };
-int main()
-{
-	Weapon weapon = Weapon::Weapon("Steel Sword", 35, 100,3,10);
-	weapon.use();
-	return 0;
-}
+

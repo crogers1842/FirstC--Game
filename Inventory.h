@@ -1,31 +1,29 @@
 #include <iostream>
-#include "Item.h"
 using namespace std;
 class Inventory
 {
 	private:
-		 Item _inventory[4] = {Item::Item(),Item::Item(),Item::Item(),Item::Item()};
-
+		string _inventory[4];
 	public:
-		Inventory(Item itemOne)
+		Inventory(string itemOne)
 		{
 			_inventory[0] = itemOne;	
 		}
 		
-		Inventory(Item itemOne,Item itemTwo)
+		Inventory(string itemOne,string itemTwo)
 		{
 			_inventory[0] = itemOne;
 			_inventory[1] = itemTwo;
 		}
 
-		Inventory(Item itemOne,Item itemTwo,Item itemThree)
+		Inventory(string itemOne,string itemTwo,string itemThree)
 		{
 			_inventory[0] = itemOne;
 			_inventory[1] = itemTwo;
 			_inventory[2] = itemThree;
 		}
 
-		Inventory(Item itemOne,Item itemTwo,Item itemThree, Item itemFour)
+		Inventory(string itemOne,string itemTwo,string itemThree, string itemFour)
 		{
 			_inventory[0] = itemOne;
 			_inventory[1] = itemTwo;
@@ -33,37 +31,37 @@ class Inventory
 			_inventory[3] = itemFour;
 		}
 		
-		void addItem(Item newItem)
+		void addItem(string newItem)
 		{
-			if(_inventory[3].getName()!="")
+			if(_inventory[3].compare("")!=0)
 				cout<<"Your Inventory is full"<<endl;
 			else
 			{
 				for(int i  = 0;i<4;i++)
 				{
-					if(_inventory[i].getName()=="")
+					if(_inventory[i].compare("")==0)
 					{
 						_inventory[i] = newItem;
 						break;
 					}
 				}
-				this->toString();
+				toString();
 			}
 		}
 		
-		void removeItem(int position)
+		void removeItem(int poisition)
 		{
-			_inventory[position]=Item::Item();
+			_inventory[position]="";
 			removeEmptySpacesFromInventory();
 		}
 
-		void removeItem(Item item)
+		void removeItem(string item)
 		{
 			for(int i = 0;i<4;i++)
 			{
-				if(_inventory[i].getName()=="")
+				if(_inventory[i].compare(item)==0)
 				{
-					_inventory[i] = Item::Item();
+					_inventory[i].clear();
 					removeEmptySpacesFromInventory();
 				}
 			}	
@@ -73,13 +71,13 @@ class Inventory
 		{
 			for(int i =0; i<4;i++)
 			{
-				if(_inventory[i].getName()==""&&i!=3)
+				if(_inventory[i].compare("") ==0&&i!=3)
 				{
 					int j = i;
-					while(j<=2&&_inventory[j+1].getName()=="")
+					while(j<=2&&_inventory[j+1].compare("")!=0)
 					{
 						_inventory[j]=_inventory[++j];
-						_inventory[j]=Item::Item();
+						_inventory[j]="";
 					}
 					break;
 				}		
@@ -91,15 +89,10 @@ class Inventory
 			cout<<endl<<"Your Inventory is \n";
 			for(int i = 0;i<4;i++)
 			{
-				if(_inventory[i].getName()!="")
-					_inventory[i].toString();
+				if(&_inventory[i]!=NULL)
+					cout<<_inventory[i]<<endl;
 			}
 			cout<<endl;
 		}
 };
-int main()
-{
-	Item steelSword = Item::Item("Steel Sword", 35);
-	Inventory inventory = Inventory::Inventory(steelSword);
-	inventory.toString();
-}
+

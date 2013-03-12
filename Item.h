@@ -2,15 +2,29 @@
 using namespace std;
 class Item
 {
+
+
   private:
 	int _uses;
 	string _name;
+
+
   public:
+	Item()
+	{
+		_name = "";
+	}
+
+
+
 	Item(string name, int uses)
 	{
 		_name = name;
 		_uses = uses;
 	}
+
+
+
 	string getName()
 	{
 		return _name;
@@ -42,5 +56,11 @@ class Item
 			return false;	
 		}	
 	}	
+	
+	void toString()
+	{
+		cout<<endl<< "Item: "<<_name<<endl;
+		cout<<"Uses: "<< _uses<<endl;
+	}
 };
 
