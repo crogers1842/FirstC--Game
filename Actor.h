@@ -4,6 +4,7 @@ class Actor
 {
 	private:
 		int _health;
+		int _currentHealth;
 		string _name;
 		string _profession;
 		int _age;
@@ -21,6 +22,7 @@ class Actor
 			_profession = profession;
 			_race = race;
 			_health = 100;
+			_currentHealth = health;
 			_age = age;
 			_level = 1;	
 		}
@@ -40,6 +42,11 @@ class Actor
 		int getHealth()
 		{
 			 return _health;
+		}
+			
+		int getCurrentHealth()
+		{
+			return _currentHealth;
 		}
 		
 		int getMagic()
@@ -95,7 +102,12 @@ class Actor
 
 		void setHealth(int newHealth)
 		{
-			_health = newHealth;
+			_currentHealth = newHealth;
+		}
+		
+		void setMaxHealth(int newValue)
+		{
+			_health = newValue;
 		}
 
 		string getName()
@@ -112,7 +124,8 @@ class Actor
 		void printCharacterStats()
 		{
 			cout<<_name<<endl;
-			cout<<"Current Health: "<< _health<<endl;
+			cout<<"Max Health: "<<_health<<endl;
+			cout<<"Current Health: "<< _currentHealth<<endl;
 			cout<<"Level: "<<_level<<endl;
 			cout<<"Strength: "<<_strength<<endl;
 			cout<<"Defence: "<<_defence<<endl;

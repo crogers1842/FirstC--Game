@@ -1,10 +1,12 @@
 #include <iostream>
 #include "Item.h"
+#include "Weapon.h"
+#include "ItemContainer.h"
 using namespace std;
 class Inventory
 {
 	private:
-		 Item _inventory[4] = {Item::Item(),Item::Item(),Item::Item(),Item::Item()};
+		 ItemContainer _inventory[4] = {Item::Item(),Item::Item(),Item::Item(),Item::Item()};
 
 	public:
 		Inventory(Item itemOne)
@@ -100,6 +102,7 @@ class Inventory
 int main()
 {
 	Item steelSword = Item::Item("Steel Sword", 35);
-	Inventory inventory = Inventory::Inventory(steelSword);
+	Weapon ironAxe = Weapon::Weapon("Iron Axe", "35",75,10,5,1);
+	Inventory inventory = Inventory::Inventory(steelSword,ironAxe);
 	inventory.toString();
 }
