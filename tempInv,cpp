@@ -1,0 +1,10 @@
+#include Item.h
+usiing namespace std;
+class Inventory
+{
+	private:
+		 Item _inventory[];
+	public:
+		Inventory()
+	
+}

@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+#define Itemdef
 class Item
 {
 
@@ -57,7 +58,7 @@ class Item
 		}	
 	}	
 	
-	void toString()
+	void virtual toString()
 	{
 		cout<<endl<< "Item: "<<_name<<endl;
 		cout<<"Uses: "<< _uses<<endl;

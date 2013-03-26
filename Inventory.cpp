@@ -1,38 +1,37 @@
 #include <iostream>
 #include "Item.h"
 #include "Weapon.h"
-#include "ItemContainer.h"
 using namespace std;
 class Inventory
 {
 	private:
-		 ItemContainer _inventory[4] = {Item::Item(),Item::Item(),Item::Item(),Item::Item()};
+		Item _inventory[4]; 
 
 	public:
-		Inventory(Item itemOne)
+		Inventory(Item *itemOne)
 		{
-			_inventory[0] = itemOne;	
+			_inventory[0] = *itemOne;	
 		}
 		
-		Inventory(Item itemOne,Item itemTwo)
+		Inventory(Item *itemOne,Item *itemTwo)
 		{
-			_inventory[0] = itemOne;
-			_inventory[1] = itemTwo;
+			_inventory[0] = *itemOne;
+			_inventory[1] = *itemTwo;
 		}
 
-		Inventory(Item itemOne,Item itemTwo,Item itemThree)
+		Inventory(Item *itemOne,Item *itemTwo,Item *itemThree)
 		{
-			_inventory[0] = itemOne;
-			_inventory[1] = itemTwo;
-			_inventory[2] = itemThree;
+			_inventory[0] = *itemOne;
+			_inventory[1] = *itemTwo;
+			_inventory[2] = *itemThree;
 		}
 
-		Inventory(Item itemOne,Item itemTwo,Item itemThree, Item itemFour)
+		Inventory(Item *itemOne,Item *itemTwo,Item *itemThree, Item *itemFour)
 		{
-			_inventory[0] = itemOne;
-			_inventory[1] = itemTwo;
-			_inventory[2] = itemThree;
-			_inventory[3] = itemFour;
+			_inventory[0] = *itemOne;
+			_inventory[1] = *itemTwo;
+			_inventory[2] = *itemThree;
+			_inventory[3] = *itemFour;
 		}
 		
 		void addItem(Item newItem)
@@ -101,8 +100,12 @@ class Inventory
 };
 int main()
 {
+	Item * pSword;
+	Item * pAxe;
 	Item steelSword = Item::Item("Steel Sword", 35);
-	Weapon ironAxe = Weapon::Weapon("Iron Axe", "35",75,10,5,1);
-	Inventory inventory = Inventory::Inventory(steelSword,ironAxe);
+	Weapon ironAxe = Weapon::Weapon("Iron Axe", 35,75,10,5,"Axe",1);
+	*pSword =steelSword;
+	*pAxe = ironAxe; 
+	Inventory inventory = Inventory::Inventory(pSword,pAxe);
 	inventory.toString();
 }

@@ -13,14 +13,14 @@ class Inventory
 		{
 			numItems = 0;
 		}
-		void add(Weapon w)
+		void add(Weapon &w)
 		{
 			Item * itemPtr = &w;
 			inventory[numItems] = itemPtr;
 			numItems++;
 		}
 		
-		void add(Item item)
+		void add(Item &item)
 		{
 			Item * itemPtr = &item;
 			inventory[numItems] = itemPtr;

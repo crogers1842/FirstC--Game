@@ -51,8 +51,8 @@ class Character: public Actor
 };
 int main()
 {
-	Character chris = Character::Character("Chris","Thief","Human",23);
-	Character diane = Character::Character("Diane","Fighter","Human",22);
+	Character chris = Character("Chris","Thief","Human",23);
+	Character diane = Character("Diane","Fighter","Human",22);
 	chris.fight(diane);
 	return 0;
 }

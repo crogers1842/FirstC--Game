@@ -22,7 +22,7 @@ class Actor
 			_profession = profession;
 			_race = race;
 			_health = 100;
-			_currentHealth = health;
+			_currentHealth = _health;
 			_age = age;
 			_level = 1;	
 		}
