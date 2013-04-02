@@ -1,12 +1,20 @@
 #include<iostream>
-#include "Actor.h"
+#ifndef Inventory_H
+#define Inventory_H
+#include "tempInv.h"
+#endif
+#ifndef Character_H
+#define Character_h
+#include "Character.h"
+#endif
 int main()
 {
-	//Actor(name,profession,race,age)
-	using namespace std;
-	Actor chris  = Actor::Actor("Chris Rogers","Thief","Human",23);
-	Actor diane = Actor::Actor("Diane Mickelson","Thief","Human",22);
-	diane.attack(chris);
-	chris.printCharacterStats();
-	return 0;
+	Weapon sword  = Weapon("Steel Sword", 35,100,10,0,"sword",1);
+	Item * sPtr = &sword;
+	Inventory inv = Inventory(sPtr);
+	Inventory * invPtr = &inv;
+	Character chris  = Character("Chris", "Thief", "Human", 23,invPtr);
+	chris.getInventory()->addItem(sword);
+	chris.printStats();
 }
+

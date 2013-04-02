@@ -1,17 +1,24 @@
 #include <iostream>
 #include "Actor.h"
+#ifndef Inventory_H
+#define Inventory_H
+#include "tempInv.h"
+#endif
 using namespace std;
 class Character: public Actor
 {
 	private:
+	Inventory* inventory;
 	public:
-	Character(string name, string profession, string race, int age):Actor( name,  profession,  race,  age)
+	Character(string name, string profession, string race, int age,Inventory * inventory):Actor( name,  profession,  race,  age)
 	{
 		initializeCharacter(profession);
 		setLevel(1);
+		this->inventory = inventory;
 	} 	
 	
-	Character(string name, string profession,string race, int age, int health, int strength, int defence, int magic, int ressitance, int pace, int level):Actor(name,profession,race,age)
+	Character(string name, string profession,string race, int age, int health, int strength, int defence, int magic, int ressitance, int pace, int level):Actor(name,profession,race,age,health,
+	strength, defence,magic,ressitance,pace,level)
 	{
 		
 	}	
@@ -48,4 +55,15 @@ class Character: public Actor
 		}
 	} 
 	
+	void printStats()
+	{
+		printCharacterStats();
+		getInventory()->toString();
+	}
+	
+	Inventory*  getInventory()
+	{
+		return inventory;
+	}
 };
+

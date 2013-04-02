@@ -16,6 +16,9 @@ class Actor
 		int _ressistance;
 		int _pace;
 	public:
+		Actor()
+		{
+		}
 		Actor(string name,string profession,string race,int age)
 		{
 			_name = name;
@@ -25,6 +28,23 @@ class Actor
 			_currentHealth = _health;
 			_age = age;
 			_level = 1;	
+		}
+		
+		Actor(string name, string profession, string race, int age, int health, int strength, int defence, int magic, int ressistance, int pace, int level )
+		{
+			_name = name;
+			_profession = profession;
+			_race = race;
+			_health = 100;
+			_currentHealth = _health;
+			_age = age;
+			_level = level;	
+			_health = health;
+			_strength = strength;
+			_defence = defence;
+			_magic = magic;
+			_ressistance = ressistance;
+			_pace = pace;
 		}
 		
 		//------------Getters------------
@@ -69,8 +89,7 @@ class Actor
 			return _level;
 		}
 
-
-//--------------setters----------------------
+//--------------Setters----------------------
 		void setLevel(int newVal)
 		{
 			_level = newVal;

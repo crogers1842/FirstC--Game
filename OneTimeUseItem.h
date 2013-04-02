@@ -1,9 +1,9 @@
-#ifndef Item_H
-#define Item_H
+#ifndef Itemdef
+#define Itemdef
 #include "Item.h"
 #endif
-#ifndef Char_H
-#define Char_H
+#ifndef Chardef
+#define Chardef
 #include "Character.h"
 #endif
 #include <iostream>

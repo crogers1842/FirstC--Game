@@ -1,5 +1,5 @@
-#ifndef Itemdef
-#define Itemdef
+#ifndef Item_H
+#define Item_H
 #include "Item.h"
 #endif
 #include <iostream>
