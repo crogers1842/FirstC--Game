@@ -2,7 +2,7 @@
 #include "Actor.h"
 #ifndef Inventory_H
 #define Inventory_H
-#include "tempInv.h"
+#include "Inventory.h"
 #endif
 using namespace std;
 class Character: public Actor

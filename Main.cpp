@@ -1,7 +1,7 @@
 #include<iostream>
 #ifndef Inventory_H
 #define Inventory_H
-#include "tempInv.h"
+#include "Inventorry.h"
 #endif
 #ifndef Character_H
 #define Character_h
