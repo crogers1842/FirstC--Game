@@ -82,5 +82,17 @@ class Inventory
 			Item * iPtr = &i;
 			inventory[numItems++] = iPtr;
 		}
+
+
+ 		void removeItem(Item * item)
+                {
+                        for(int i =0;i<4;i++)
+                        {
+                                if(&item==&inventory[i])
+                                {
+                                        inventory[i] = 0;
+                                }
+                        }
+                }
 };
 
